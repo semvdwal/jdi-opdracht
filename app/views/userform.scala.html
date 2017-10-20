@@ -1,0 +1,63 @@
+@(userForm: Form[User])
+@main("Maak user account aan") {
+
+    <div class="container">
+
+        <br/><br/>
+
+        <div class="userform">
+
+            <h2>Maak nieuwe gebruiker aan</h2>
+
+            <hr/>
+
+            @helper.form(action = routes.UserController.submitUser()) {
+
+                <div class="hidden">
+                @helper.inputText(userForm("_id"), 'id -> "_id", 'class -> "form-control")
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Gebruikersnaam</label>
+                    @helper.inputText(userForm("username"), 'id -> "username", 'class -> "form-control")
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email adres</label>
+                    @helper.inputText(userForm("email"), 'id -> "email", 'class -> "form-control")
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefoonnummer</label>
+                    @helper.inputText(userForm("phone"), 'id -> "phone", 'class -> "form-control")
+                </div>
+
+                <div class="form-group">
+                    <label for="firstName">Voornaam</label>
+                    @helper.inputText(userForm("firstName"), 'id -> "firstName", 'class -> "form-control")
+                </div>
+
+                <div class="form-group">
+                    <label for="lastName">Achternaam</label>
+                    @helper.inputText(userForm("lastName"), 'id -> "lastName", 'class -> "form-control")
+                </div>
+
+                <button class="btn btn-primary" type="submit">Verzenden</button>
+
+                @if(userForm.hasGlobalErrors) {
+                    <p class="error">
+                    @for(error <- userForm.globalErrors) {
+                        <p>@error.format(messages())</p>
+                    }
+                    </p>
+                }
+
+            }
+
+            </form>
+
+        </div>
+
+    </div>
+
+}
