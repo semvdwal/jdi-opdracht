@@ -3,7 +3,7 @@ package library;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Id;
 
-public class Model<T> {
+abstract public class Model {
 
     @Id
     private ObjectId _id;
@@ -16,7 +16,7 @@ public class Model<T> {
         this._id = id;
     }
 
-    public Model<T> withId() {
+    public Model withId() {
         if(getId() == null) _id = new ObjectId();
         return this;
     }
