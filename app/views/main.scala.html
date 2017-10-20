@@ -20,5 +20,8 @@
         @* And here's where we render the `Html` object containing
          * the page content. *@
         @content
+
+        <script src="@routes.Assets.versioned("javascripts/jquery-3.2.1.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.versioned("javascripts/feed.js")" type="text/javascript"></script>
     </body>
 </html>
