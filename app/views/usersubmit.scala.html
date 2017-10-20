@@ -1,0 +1,17 @@
+@(user: User)
+@main("Bedankt voor uw registratie") {
+
+    <div class="container">
+
+        <br/><br/>
+        <h2>Welkom @{user.getFirstName} @{user.getLastName}!</h2>
+        <p>
+            We hebben je gebruiker geregistreerd met gebruikersnaam @{user.getUsername} en email adres @{user.getEmail}<br/>
+            Ter bevestiging hebben we je een mailtje gestuurd met verdere informatie.
+        </p>
+
+        <a class="btn btn-primary" href="/userform">Terug</a>
+
+    </div>
+
+}
